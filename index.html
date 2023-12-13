@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Моя сторінка</title>
+  <script language="JavaScript">
+    function welcome() {
+      alert('2005 в селі Заслуччя');
+    }
+
+    function calculation() {
+      var x = 12;
+      var y = 5;
+      var z = 34;
+      var result = 2 * x + 3 * y - z;
+      alert('Результат обчислення F=2x+3y-z: ' + result);
+    }
+
+    var timeStr, dateStr;
+
+    function clock() {
+      now = new Date();
+      hours = now.getHours();
+      minutes = now.getMinutes();
+      seconds = now.getSeconds();
+      timeStr = (hours < 10 ? "0" : "") + hours;
+      timeStr += ":" + (minutes < 10 ? "0" : "") + minutes;
+      timeStr += ":" + (seconds < 10 ? "0" : "") + seconds;
+
+      date = now.getDate();
+      month = now.getMonth() + 1;
+      year = now.getFullYear();
+      dateStr = (year < 10 ? "0" : "") + year;
+      dateStr += ":" + (month < 10 ? "0" : "") + month;
+      dateStr += ":" + (date < 10 ? "0" : "") + date;
+
+      document.getElementById("time").innerHTML = timeStr;
+      document.getElementById("date").innerHTML = dateStr;
+
+      Timer = setTimeout("clock()", 1000);
+    }
+  </script>
+  <style>
+    body {
+      background-color: #87CEEB;
+      color: navy;
+    }
+
+    h1 {
+      color: maroon;
+    }
+  </style>
+</head>
+
+<body onload="clock()">
+  <h1>Заблоцький Станіслав</h1>
+  <form>
+    <input type="button" value="Привітайся зі мною" onclick="welcome()">
+  </form>
+
+  <form>
+    <input type="button" value="Обчислити F=2x+3y-z" onclick="calculation()">
+  </form>
+
+  <div>
+    <h2>Годинник</h2>
+    <form name="clock">
+      <label>Дата: </label>
+      <span id="date"></span>
+      <br>
+      <label>Час: </label>
+      <span id="time"></span>
+    </form>
+  </div>
+</body>
+
+</html>
